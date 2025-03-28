@@ -82,10 +82,10 @@ class AptidaoApp(BoxLayout):
     def conectar_banco(self):
         try:
             return pymysql.connect(
-                host="186.202.152.111",
-                user="consorciofauna",
-                password="cgF@1234",
-                database="consorciofauna",
+                host="*",
+                user="*",
+                password="*",
+                database="*",
                 cursorclass=pymysql.cursors.DictCursor
             )
         except pymysql.MySQLError as erro:
