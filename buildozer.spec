@@ -1,10 +1,10 @@
 [app]
 
 # (str) Title of your application
-title = Aplicativo de Aptidão
+title = Aplicativo consorcio
 
 # (str) Package name
-package.name = AptidaoApp
+package.name = Aplicativoconsorcio
 
 # (str) Package domain (needed for android/ios packaging)
 package.domain = org.Julio_1993
@@ -37,7 +37,7 @@ version = 0.1
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
-requirements = kivy, kivymd, pillow, pymysql
+requirements = kivy, kivymd, pillow, pymysql, ftplib, datetime, re
 
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes
