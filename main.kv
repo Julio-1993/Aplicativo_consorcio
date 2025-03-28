@@ -1,0 +1,57 @@
+#:kivy 2.0.0
+
+<MainMenuScreen>:
+    BoxLayout:
+        orientation: "vertical"
+        padding: 20
+        spacing: 10
+
+        Button:
+            text: "Aptidão"
+            size_hint: (1, 0.2)
+            background_color: 0.3, 0.8, 0.3, 1
+            on_press: app.root.current = "aptidao"
+
+        Button:
+            text: "Movimentação"
+            size_hint: (1, 0.2)
+            background_color: 0.1, 0.2, 0.6, 1
+            on_press: app.root.current = "movimentacao"
+
+        Button:
+            text: "Envio de Fotos"
+            size_hint: (1, 0.2)
+            background_color: 0.9, 0.2, 0.2, 1
+            on_press: app.root.current = "fotos"
+
+        BoxLayout:
+            orientation: "vertical"
+            size_hint: (1, 0.3)
+
+            Label:
+                text: "Desenvolvido por: Júlio César Andrade"
+                size_hint_y: None
+                height: self.texture_size[1]
+
+            Label:
+                text: "Para: Consórcio Gestão Fauna"
+                size_hint_y: None
+                height: self.texture_size[1]
+
+<AptidaoScreen>:
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            text: "Tela de Aptidão - Integração com AptidaoApp"
+
+<MovimentacaoScreen>:
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            text: "Tela de Movimentação - Integração com MovimentacaoApp"
+
+<FotosScreen>:
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            text: "Tela de Envio de Fotos - Integração com FotosApp"
