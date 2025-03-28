@@ -1,0 +1,54 @@
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configurar Java 17
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Instalar dependências necessárias
+        run: |
+          sudo apt update
+          sudo apt install -y zip unzip tar python3-pip
+
+      - name: Exibir versões e pacotes instalados (debug)
+        run: |
+          java -version
+          python --version
+          pip list
+
+      - name: Limpar build anterior (caso exista)
+        run: buildozer android clean || true
+
+      - name: Construir APK com Buildozer
+        uses: digreatbrian/buildozer-action@v2
+        with:
+          python-version: 3.11
+          buildozer-cmd: buildozer -v android debug
+        continue-on-error: true
+
+      - name: Salvar logs de erro se a build falhar
+        if: failure()
+        run: cat ~/.buildozer/android/platform/build.log || echo "Nenhum log encontrado."
+
+      - name: Upload dos logs para análise
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-logs
+          path: ~/.buildozer/android/platform/build.log
+
+      - name: Upload do APK gerado
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: package
+          path: ./bin/*.apk
+
