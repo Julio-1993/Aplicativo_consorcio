@@ -15,17 +15,17 @@ class FotosApp(BoxLayout):
         super().__init__(orientation='vertical', padding=10, spacing=10, **kwargs)
 
         # Credenciais do FTP
-        self.ftp_host = "ftp.guiraguira.com.br"
-        self.ftp_user = "guiraguira1"
-        self.ftp_pass = "Guiraguira1@10203040"
-        self.ftp_base_dir = "/web/cgf/Testes_julio"
-        self.ftp_url = "https://guiraguira.com.br/admcgf/Testes_julio/"
+        self.ftp_host = "*"
+        self.ftp_user = "*"
+        self.ftp_pass = "*"
+        self.ftp_base_dir = "*"
+        self.ftp_url = "*"
 
         # Credenciais do Banco de Dados
-        self.db_host = "186.202.152.111"
-        self.db_user = "consorciofauna"
-        self.db_password = "cgF@1234"
-        self.db_name = "consorciofauna"
+        self.db_host = "*"
+        self.db_user = "*"
+        self.db_password = "*"
+        self.db_name = "*"
 
         self.selected_files = []
 
